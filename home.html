@@ -5,10 +5,32 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>POWERHUB — Home</title>
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome for Social Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-ku+fZ2A95Z+6mVyI3ZsW5FZzsbJ5+H3/cb8q8lqTvRjaoJ5Haf1c5Bz6mPXi08XKd0Er9rWqJ6+Qf6xTZh2d0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- Social icon hover styling -->
+  <style>
+    .socials a {
+      color: var(--muted);
+      margin-left: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .socials a:hover {
+      color: var(--accent-red);
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 <body>
   <!-- NAVBAR -->
@@ -21,7 +43,6 @@
         <a href="trainers.html">Trainers</a>
         <a href="contact.html">Contact Us</a>
       </nav>
-
       <button class="hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -32,7 +53,6 @@
   <section class="hero" id="home">
     <video class="hero-video" autoplay muted loop playsinline>
       <source src="assets/hero-loop.mp4" type="video/mp4">
-      <!-- If video not available browser will ignore; CSS fallback shows background image -->
     </video>
     <div class="hero-overlay"></div>
 
@@ -42,12 +62,9 @@
           UNLEASH THE <span class="glow-red">BEAST</span><br>
           <span class="ghost">Train Harder • Recover Smarter</span>
         </h1>
-
         <p class="hero-sub">Elite coaching. Science-backed programs. Community that pushes you beyond limits.</p>
 
-        <div class="hero-ctas">
-          <a class="btn primary">Start Trial</a>
-        </div>
+        <!-- Removed Start Trial button -->
 
         <div class="hero-stats">
           <div class="stat">
@@ -65,21 +82,23 @@
         </div>
       </div>
 
+      <!-- Right panel / Booking -->
       <aside class="hero-right glass">
         <div class="signup">
           <h3>Book Free Trial</h3>
           <p class="small-muted">Limited onboarding slots each week.</p>
-          <form class="mini-form" onsubmit="return false;">
+          <form class="mini-form" id="bookingForm" onsubmit="return false;">
             <input type="text" placeholder="Your name" required>
             <input type="tel" placeholder="Phone" required>
             <button class="btn primary wide" type="submit">Get Booked</button>
+            <p class="booking-success hidden">✅ Thank you! Your slot is reserved.</p>
           </form>
         </div>
 
         <div class="trainer-preview">
-          <img src="subhan.jp" alt="trainer preview">
+          <img src="subhan.jpeg" alt="trainer preview">
           <div class="tp-info">
-            <div class="tp-name">SAURABH</div>
+            <div class="tp-name">Subhan Khan</div>
             <div class="tp-role">Head Coach</div>
           </div>
         </div>
@@ -120,37 +139,54 @@
         <p class="muted">Transformations start when you commit. Memberships built for real life.</p>
         <div class="preview-ctas">
           <a class="btn primary" href="seeplan.html">See Plans</a>
+          <a class="btn outline" href="contact.html">Visit Us</a>
         </div>
       </div>
-
       <div class="preview-media">
-        <img src=" gym.jpg " alt="gym preview">
+        <img src="gym.jpg" alt="gym preview">
       </div>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="copy">© <span id="year"></span> POWERHUB — All rights reserved</div>
       <div class="socials">
-        <a href="#" aria-label="Instagram">Instagram</a>
-        <a href="#" aria-label="YouTube">YouTube</a>
-        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
       </div>
     </div>
   </footer>
 
+  <!-- SCRIPTS -->
   <script>
-    // year
+    // Update year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // hamburger (basic mobile toggle)
+    // Hamburger toggle
     const hamburger = document.querySelector('.hamburger');
     const links = document.querySelector('.links');
     hamburger.addEventListener('click', () => {
       const expanded = hamburger.getAttribute('aria-expanded') === 'true';
       hamburger.setAttribute('aria-expanded', String(!expanded));
       links.classList.toggle('open');
+    });
+
+    // Booking form success
+    const bookingForm = document.getElementById('bookingForm');
+    const successMsg = bookingForm.querySelector('.booking-success');
+    bookingForm.addEventListener('submit', () => {
+      successMsg.classList.remove('hidden');
+      successMsg.classList.add('show');
+
+      setTimeout(() => {
+        successMsg.classList.remove('show');
+        successMsg.classList.add('hidden');
+      }, 3000);
+
+      bookingForm.reset();
     });
 
     // small smooth reveal on load
@@ -160,9 +196,4 @@
   </script>
 </body>
 </html>
-
-
-
-
-
 
