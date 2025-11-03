@@ -5,115 +5,203 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Trainers | PowerHub Gym</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #000;
-      color: #fff;
+    :root {
+      --bg-top: #0e0013;
+      --bg-mid: #190014;
+      --bg-bot: #000010;
+      --accent-red: #ff1744;
+      --accent-red-2: #ff5f6d;
+      --accent-cyan: #00e5ff;
+      --muted: #bfc5cc;
+      --glass: rgba(255,255,255,0.03);
+      --glass-2: rgba(255,255,255,0.02);
+      --container: 1180px;
+      --radius: 12px;
+      --shadow-strong: 0 18px 60px rgba(0,0,0,0.6);
     }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins','Inter',system-ui;
+      color: #eef3f8;
+      background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 40%, var(--bg-bot) 100%);
+      background-attachment: fixed;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    body::before {
+      content:"";
+      position: fixed;
+      inset:0;
+      background: radial-gradient(circle at 20% 15%, rgba(255,23,68,0.12), transparent 40%),
+                  radial-gradient(circle at 85% 85%, rgba(0,229,255,0.03), transparent 30%);
+      pointer-events:none;
+      z-index:-1;
+    }
+
+    /* ===== Navbar ===== */
+    nav {
+      position: sticky; top:0; z-index: 120;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(90deg, rgba(255,23,68,0.03), rgba(255,23,68,0.01));
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+    .nav-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 20px;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--accent-red);
+      text-decoration: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .links {
+      display: flex; gap: 24px;
+    }
+    .links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      padding: 8px 12px;
+      border-radius: 10px;
+    }
+    .links a:hover, .links a.active {
+      color: #fff;
+      text-shadow: 0 0 14px rgba(255,23,68,0.6);
+      transform: translateY(-2px);
+    }
+
+    /* ===== Page Header ===== */
     h1 {
       text-align: center;
-      font-size: 48px;
-      margin-top: 40px;
+      font-size: 50px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-top: 60px;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(255,23,68,0.2), 0 0 40px rgba(255,23,68,0.1);
     }
-
-    .red {
-      color: #e60000; /* POWERHUB red */
-    }
-
-    .white {
-      color: #fff; /* GYM white */
+    h1 span {
+      color: var(--accent-red);
     }
 
     .intro {
       text-align: center;
-      font-weight: bold;
-      color: #ccc;
+      font-weight: 500;
+      color: var(--muted);
       font-size: 18px;
       max-width: 800px;
-      margin: 10px auto 40px;
+      margin: 14px auto 40px;
       line-height: 1.6;
     }
 
+    /* ===== Trainer Cards ===== */
     .trainer-section {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      background-color: #111;
-      border-radius: 15px;
+      background: var(--glass);
+      border-radius: var(--radius);
       margin: 40px auto;
       padding: 20px;
       width: 85%;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+      border: 1px solid rgba(255,255,255,0.04);
+      box-shadow: var(--shadow-strong);
+      backdrop-filter: blur(14px) saturate(160%);
+      transition: all 0.3s ease;
+    }
+    .trainer-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 28px rgba(255,23,68,0.4), 0 0 60px rgba(255,23,68,0.15);
+      border-color: rgba(255,23,68,0.25);
     }
 
     .trainer-section img {
       width: 280px;
       height: 320px;
       object-fit: cover;
-      border-radius: 10px;
+      border-radius: 12px;
       margin: 15px;
+      border: 2px solid rgba(255,255,255,0.04);
+      transition: transform 0.3s ease;
+    }
+    .trainer-section img:hover {
+      transform: scale(1.04);
     }
 
     .trainer-info {
       max-width: 500px;
       margin: 15px;
     }
-
     .trainer-info h2 {
-      color: #e60000;
-      font-size: 24px;
+      color: var(--accent-red);
+      font-size: 26px;
       margin-bottom: 10px;
+      text-shadow: 0 0 12px rgba(255,23,68,0.3);
     }
-
     .trainer-info p {
-      color: #ccc;
+      color: var(--muted);
       line-height: 1.6;
       margin-bottom: 15px;
-    }
-
-    .trainer-info a {
-      display: inline-block;
-      background-color: #e60000;
-      color: #fff;
-      text-decoration: none;
-      padding: 8px 15px;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .trainer-info a:hover {
-      background-color: #ff1a1a;
+      font-weight: 400;
     }
 
     footer {
       text-align: center;
       margin: 60px 0 20px;
-      color: #777;
+      color: var(--muted);
       font-size: 14px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 760px) {
+      .trainer-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      .trainer-info {
+        max-width: 90%;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1><span class="red">POWERHUB GYM TRAINERS</span></h1>
-  <p class="intro">Meet our expert trainers who redefine fitness through discipline, passion, and strength.  
-  Their guidance helps you unleash the power within and achieve real transformation.</p>
+  <!-- 🔹 Navigation Bar -->
+  <nav>
+    <div class="nav-inner">
+      <a href="home.html" class="logo">POWERHUB</a>
+      <div class="links">
+        <a href="home.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="trainers.html" class="active">Trainers</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+  </nav>
+
+  <h1><span>Meet</span> Our Trainers</h1>
+  <p class="intro">Elite professionals who blend discipline, power, and precision to help you unleash your inner beast.</p>
 
   <!-- Trainer 1 -->
   <div class="trainer-section">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnzBArH03zHFVquG0_ihhS05b-vXXXkdBD4A&s" alt="Trainer 1">
     <div class="trainer-info">
-      <h2>Shubham kochle</h2>
-      <p>A certified strength and conditioning coach who focuses on power, endurance, and perfect form.  
-      His sessions push limits, improve posture, and deliver visible results.  
-      He always love to do exercise by bricks and "Ghar ka gate".</p>
-   
+      <h2>Shubham Kochle</h2>
+      <p>A certified strength and conditioning coach focused on power, endurance, and perfect form.  
+      His sessions push your limits and sculpt your best version — the gate, bricks, or gym floor, nothing stops him.</p>
     </div>
   </div>
 
@@ -122,10 +210,8 @@
     <img src="https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2020/08/30/Pictures/_838b3fb0-ea84-11ea-b0d0-732c2aa3f4c8.jpg" alt="Trainer 2">
     <div class="trainer-info">
       <h2>Kokila Modi</h2>
-      <p>Kokila modi is known for his attitude and arrogance.  
-      Kokila modi is so serious and passionate about her fitness,"Gopi bahu" and "Gopi bahu ki love life".  
-      Kokila modi is so strict towards to diets she don't want anyone to be fat specially "Ahem babu".</p>
-     
+      <p>Known for her no-nonsense discipline, Kokila ensures no one slacks on form or diet.  
+      Her sessions combine tradition and strength — no excuses, just pure transformation.</p>
     </div>
   </div>
 
@@ -134,19 +220,18 @@
     <img src="https://m.media-amazon.com/images/M/MV5BZTVmYWU5NWMtNTE5My00YzZkLTkwMzAtNWI4OWYzNGNjZmFiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Trainer 3">
     <div class="trainer-info">
       <h2>Trainer C</h2>
-      <p>As we all know that he is "Nadia ka husband". 
-      Recently he got shocked when he know that there is no nadia there is a guy who's trying to be nadia.
-      He got heartbreak so he is ready to transform himself and our gym members.</p>
+      <p>A motivational powerhouse who turned heartbreak into strength.  
+      His programs focus on both physical transformation and inner resilience — training that builds character as well as muscle.</p>
     </div>
   </div>
-<!-- Trainer 4 -->
+
+  <!-- Trainer 4 -->
   <div class="trainer-section">
-    <img src="https://static.india.com/wp-content/uploads/2025/01/RS-1.jpg?impolicy=Medium_Widthonly&w=400" alt="Trainer 3">
+    <img src="https://static.india.com/wp-content/uploads/2025/01/RS-1.jpg?impolicy=Medium_Widthonly&w=400" alt="Trainer 4">
     <div class="trainer-info">
       <h2>Rakhi Sawant</h2>
-      <p>As we all know that he is "Nadia ka husband". 
-      Recently he got shocked when he know that there is no nadia there is a guy who's trying to be nadia.
-      He got heartbreak so he is ready to transform himself and our gym members.</p>
+      <p>High energy, full of confidence, and unstoppable on the floor — her sessions bring motivation, entertainment, and results together.  
+      The perfect balance of fun and fitness.</p>
     </div>
   </div>
 
