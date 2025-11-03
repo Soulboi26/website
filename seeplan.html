@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Power Hub Gym Membership Plans</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #0b0b0b, #1a1a1a);
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    h1 {
+      color: #ffcc00;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: #ccc;
+      margin-bottom: 40px;
+    }
+
+    .plans-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .plan-box {
+      background: #121212;
+      border-radius: 15px;
+      padding: 30px 20px;
+      box-shadow: 0 0 15px rgba(255, 0, 40, 0.3);
+      transition: 0.3s;
+    }
+
+    .plan-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(255, 0, 50, 0.6);
+    }
+
+    .plan-duration {
+      color: #ff0033;
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffcc00;
+      margin-bottom: 15px;
+    }
+
+    .benefits {
+      list-style: none;
+      padding: 0;
+      color: #ddd;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .benefits li::before {
+      content: "✔ ";
+      color: #ff0033;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Membership Plans</h1>
+  <p>Choose the perfect plan for your fitness journey</p>
+
+  <div class="plans-container">
+    <div class="plan-box">
+      <div class="plan-duration">1 Month</div>
+      <div class="price">₹999</div>
+      <ul class="benefits">
+        <li>Full Gym Access</li>
+        <li>Basic Trainer Support</li>
+        <li>Flexible Timings</li>
+      </ul>
+    </div>
+
+    <div class="plan-box">
+      <div class="plan-duration">3 Months</div>
+      <div class="price">₹2499</div>
+      <ul class="benefits">
+        <li>Diet Guidance</li>
+        <li>Progress Tracking</li>
+        <li>Certified Trainers</li>
+      </ul>
+    </div>
+
+    <div class="plan-box">
+      <div class="plan-duration">6 Months</div>
+      <div class="price">₹4499</div>
+      <ul class="benefits">
+        <li>Personal Training Plan</li>
+        <li>Monthly Progress Report</li>
+        <li>Customized Workouts</li>
+      </ul>
+    </div>
+
+    <div class="plan-box">
+      <div class="plan-duration">1 Year</div>
+      <div class="price">₹7999</div>
+      <ul class="benefits">
+        <li>All Benefits Included</li>
+        <li>Free Gym Merchandise</li>
+        <li>Priority Trainer Access</li>
+      </ul>
+    </div>
+  </div>
+
+</body>
+</html>
