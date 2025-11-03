@@ -108,8 +108,8 @@
     .trainer-section {
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
       background: var(--glass);
       border-radius: var(--radius);
       margin: 40px auto;
@@ -131,7 +131,7 @@
       height: 320px;
       object-fit: cover;
       border-radius: 12px;
-      margin: 15px;
+      margin-right: 30px;
       border: 2px solid rgba(255,255,255,0.04);
       transition: transform 0.3s ease;
     }
@@ -140,8 +140,7 @@
     }
 
     .trainer-info {
-      max-width: 500px;
-      margin: 15px;
+      max-width: 600px;
     }
     .trainer-info h2 {
       color: var(--accent-red);
@@ -165,11 +164,15 @@
       padding-top: 20px;
     }
 
-    /* Responsive */
+    /* ===== Responsive ===== */
     @media (max-width: 760px) {
       .trainer-section {
         flex-direction: column;
         text-align: center;
+      }
+      .trainer-section img {
+        margin-right: 0;
+        margin-bottom: 20px;
       }
       .trainer-info {
         max-width: 90%;
