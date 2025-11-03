@@ -3,124 +3,144 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Power Hub Gym Membership Plans</title>
+  <title>Membership Plans | PowerHub Gym</title>
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, #0b0b0b, #1a1a1a);
-      color: white;
+      background-color: #000;
+      color: #fff;
       text-align: center;
-      padding: 50px 20px;
     }
 
     h1 {
-      color: #ffcc00;
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+      color: #e60000;
+      font-size: 48px;
+      margin-top: 40px;
       text-transform: uppercase;
     }
 
-    p {
-      color: #ccc;
-      margin-bottom: 40px;
+    .plans {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin: 40px auto;
+      width: 90%;
+      max-width: 1100px;
     }
 
-    .plans-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 25px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .plan-box {
-      background: #121212;
+    .plan {
+      background-color: #111;
       border-radius: 15px;
-      padding: 30px 20px;
-      box-shadow: 0 0 15px rgba(255, 0, 40, 0.3);
-      transition: 0.3s;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+      padding: 30px;
+      width: 250px;
+      transition: transform 0.3s;
     }
 
-    .plan-box:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 0 25px rgba(255, 0, 50, 0.6);
+    .plan:hover {
+      transform: scale(1.05);
     }
 
-    .plan-duration {
-      color: #ff0033;
-      font-size: 1.4rem;
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .price {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: #ffcc00;
+    .plan h2 {
+      color: #e60000;
+      font-size: 24px;
       margin-bottom: 15px;
     }
 
-    .benefits {
-      list-style: none;
-      padding: 0;
-      color: #ddd;
-      font-size: 0.95rem;
+    .plan p {
+      color: #ccc;
       line-height: 1.6;
+      font-size: 15px;
+      margin-bottom: 20px;
     }
 
-    .benefits li::before {
-      content: "✔ ";
-      color: #ff0033;
+    .plan .price {
+      font-size: 28px;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .plan button {
+      background-color: #e60000;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .plan button:hover {
+      background-color: #ff1a1a;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 20px;
+      background-color: #222;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .back-btn:hover {
+      background-color: #e60000;
+    }
+
+    footer {
+      margin: 50px 0 20px;
+      color: #777;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
 
-  <h1>Membership Plans</h1>
-  <p>Choose the perfect plan for your fitness journey</p>
-
-  <div class="plans-container">
-    <div class="plan-box">
-      <div class="plan-duration">1 Month</div>
+  <div class="plans">
+    <div class="plan">
+      <h2>1 Month Plan</h2>
       <div class="price">₹999</div>
-      <ul class="benefits">
-        <li>Full Gym Access</li>
-        <li>Basic Trainer Support</li>
-        <li>Flexible Timings</li>
-      </ul>
+      <p>Access to all gym equipment and locker facilities.  
+      Ideal for short-term goals or first-time members.</p>
+      <button>Join Now</button>
     </div>
 
-    <div class="plan-box">
-      <div class="plan-duration">3 Months</div>
+    <div class="plan">
+      <h2>3 Month Plan</h2>
       <div class="price">₹2499</div>
-      <ul class="benefits">
-        <li>Diet Guidance</li>
-        <li>Progress Tracking</li>
-        <li>Certified Trainers</li>
-      </ul>
+      <p>Get full access plus 1 personal trainer session every week.  
+      Perfect for consistency and progress tracking.</p>
+      <button>Join Now</button>
     </div>
 
-    <div class="plan-box">
-      <div class="plan-duration">6 Months</div>
+    <div class="plan">
+      <h2>6 Month Plan</h2>
       <div class="price">₹4499</div>
-      <ul class="benefits">
-        <li>Personal Training Plan</li>
-        <li>Monthly Progress Report</li>
-        <li>Customized Workouts</li>
-      </ul>
+      <p>Includes trainer support, diet guidance, and flexibility sessions.  
+      Great for body transformation programs.</p>
+      <button>Join Now</button>
     </div>
 
-    <div class="plan-box">
-      <div class="plan-duration">1 Year</div>
+    <div class="plan">
+      <h2>1 Year Plan</h2>
       <div class="price">₹7999</div>
-      <ul class="benefits">
-        <li>All Benefits Included</li>
-        <li>Free Gym Merchandise</li>
-        <li>Priority Trainer Access</li>
-      </ul>
+      <p>Unlimited access, personal coaching, and nutrition planning.  
+      Best value for serious fitness lovers.</p>
+      <button>Join Now</button>
     </div>
   </div>
+
+   <a href="home.html" class="back-btn">← Back</a>
+  <h1>Membership Plans</h1>
+
+  <footer>© 2025 PowerHub Gym. All rights reserved.</footer>
 
 </body>
 </html>
