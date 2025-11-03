@@ -8,16 +8,17 @@
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #000;
-      color: #fff;
+      background-color: #000000;
+      color: white;
       text-align: center;
     }
 
     h1 {
-      color: #e60000;
-      font-size: 48px;
+      color: #ff4b6e;
+      font-size: 3rem;
       margin-top: 40px;
-      text-transform: uppercase;
+      font-weight: 700;
+      text-shadow: 0 0 20px rgba(255, 75, 110, 0.6);
     }
 
     .plans {
@@ -25,84 +26,116 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
-      margin: 40px auto;
+      margin: 50px auto;
       width: 90%;
       max-width: 1100px;
     }
 
     .plan {
-      background-color: #111;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+      background-color: rgba(20, 20, 20, 0.95);
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 75, 110, 0.3);
       padding: 30px;
       width: 250px;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .plan:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(255, 75, 110, 0.5);
     }
 
     .plan h2 {
-      color: #e60000;
-      font-size: 24px;
+      color: #ff4b6e;
+      font-size: 1.8rem;
       margin-bottom: 15px;
     }
 
-    .plan p {
-      color: #ccc;
-      line-height: 1.6;
-      font-size: 15px;
-      margin-bottom: 20px;
-    }
-
     .plan .price {
-      font-size: 28px;
+      font-size: 1.8rem;
       font-weight: bold;
       color: #fff;
+      margin-bottom: 15px;
+      text-shadow: 0 0 15px rgba(255, 75, 110, 0.6);
+    }
+
+    .plan p {
+      color: #d1d5db;
+      line-height: 1.6;
+      font-size: 0.95rem;
       margin-bottom: 20px;
     }
 
     .plan button {
-      background-color: #e60000;
+      background-color: #ff4b6e;
       border: none;
       color: #fff;
-      padding: 10px 20px;
-      border-radius: 8px;
+      padding: 10px 25px;
+      border-radius: 10px;
       font-weight: bold;
       cursor: pointer;
-      transition: 0.3s;
+      transition: all 0.3s;
+      font-size: 1rem;
     }
 
     .plan button:hover {
-      background-color: #ff1a1a;
+      background-color: #ff7a9b;
+      box-shadow: 0 0 15px rgba(255, 75, 110, 0.6);
     }
 
     .back-btn {
       display: inline-block;
-      margin-top: 20px;
+      margin-top: 30px;
       background-color: #222;
       color: #fff;
       padding: 10px 20px;
-      border-radius: 8px;
+      border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
       transition: 0.3s;
+      box-shadow: 0 0 10px rgba(255, 75, 110, 0.3);
     }
 
     .back-btn:hover {
-      background-color: #e60000;
+      background-color: #ff4b6e;
+      box-shadow: 0 0 20px rgba(255, 75, 110, 0.6);
     }
 
     footer {
       margin: 50px 0 20px;
-      color: #777;
-      font-size: 14px;
+      color: #9ca3af;
+      font-size: 0.9rem;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+    }
+
+    .logo h1 {
+      font-size: 2.2rem;
+      color: #ff4b6e;
+      text-shadow: 0 0 15px rgba(255, 75, 110, 0.6);
     }
   </style>
 </head>
 <body>
-<h1>Membership Plans</h1>
+
+  <div class="logo">
+    <img src="your-logo.png" alt="PowerHub Logo">
+    <h1>PowerHub</h1>
+  </div>
+
+  <h1>Membership Plans</h1>
+
   <div class="plans">
     <div class="plan">
       <h2>1 Month Plan</h2>
@@ -115,7 +148,7 @@
     <div class="plan">
       <h2>3 Month Plan</h2>
       <div class="price">₹2499</div>
-      <p>Get full access plus 1 personal trainer session every week.  
+      <p>Full access plus 1 personal trainer session every week.  
       Perfect for consistency and progress tracking.</p>
       <button>Join Now</button>
     </div>
@@ -124,7 +157,7 @@
       <h2>6 Month Plan</h2>
       <div class="price">₹4499</div>
       <p>Includes trainer support, diet guidance, and flexibility sessions.  
-      Great for body transformation programs.</p>
+      Great for transformation programs.</p>
       <button>Join Now</button>
     </div>
 
@@ -137,10 +170,9 @@
     </div>
   </div>
 
-   <a href="home.html" class="back-btn">← Back</a>
+  <a href="home.html" class="back-btn">← Back</a>
 
-  <footer>© 2025 PowerHub Gym. All rights reserved.</footer>
+  <footer>© 2025 PowerHub Fitness. All rights reserved.</footer>
 
 </body>
 </html>
-
