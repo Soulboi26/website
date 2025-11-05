@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PowerHub Login</title>
 
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap');
 
@@ -22,15 +23,21 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 40%, var(--bg-bot) 100%);
-      background-attachment: fixed;
-      color: #fff;
+      margin: 0;
+      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
-      overflow: hidden;
+      color: #fff;
+      background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 40%, var(--bg-bot) 100%);
+      background-size: 400% 400%;
+      animation: bgShift 12s ease infinite;
+    }
+
+    @keyframes bgShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     body::before {
@@ -53,6 +60,11 @@
       width: 360px;
       max-width: 90%;
       animation: fadeUp 0.7s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     h1 {
@@ -140,10 +152,6 @@
       text-shadow: 0 0 10px rgba(255,23,68,0.5);
     }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 
@@ -152,12 +160,20 @@
     <h1>💪 PowerHub Login</h1>
     <form id="loginForm">
       <div class="input-box">
-        <input type="text" required>
-        <label>Username</label>
+        <input type="text" id="usernameInput" required>
+        <label for="usernameInput">Username</label>
       </div>
-      <div class="input-box">
-        <input type="password" required>
-        <label>Password</label>
+      <div class="input-box" style="position: relative;">
+        <input type="password" id="passwordInput" required>
+        <label for="passwordInput">Password</label>
+        <span id="togglePwd" style="
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: var(--muted);
+          ">👁️</span>
       </div>
       <center>
         <button type="submit" class="btn">Login</button>
@@ -166,29 +182,45 @@
     </form>
   </div>
 
-    <script>
-  const correctUsername = "POWERHUB";  
-  const correctPassword = "POWERHUB";  
-  document.getElementById('loginForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const enteredUser = this.querySelector('input[type="text"]').value.trim();
-    const enteredPwd  = this.querySelector('input[type="password"]').value;
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <script>
+    const correctUsername = "POWERHUB"; 
+    const correctPassword = "POWERHUB"; 
 
-    if (enteredUser === correctUsername && enteredPwd === correctPassword) {
-      // Login successful
-      alert("Login successful!");
-      // Redirect karna chahte hain toh:
-      window.location.href = "home.html"; 
-    } else {
-      // Login failed
-      alert("Invalid username or password!");
-    }
-  });
+    document.getElementById('togglePwd').addEventListener('click', function(){
+      const pwdInput = document.getElementById('passwordInput');
+      if (pwdInput.type === 'password') {
+        pwdInput.type = 'text';
+        this.textContent = '🙈';
+      } else {
+        pwdInput.type = 'password';
+        this.textContent = '👁️';
+      }
+    });
 
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const enteredUser = document.getElementById('usernameInput').value.trim();
+      const enteredPwd  = document.getElementById('passwordInput').value;
 
+      if (enteredUser === correctUsername && enteredPwd === correctPassword) {
+        Toastify({
+          text: "Login successful!",
+          duration: 3000,
+          style: { background: "linear-gradient(to right, #00b09b, #96c93d)" }
+        }).showToast();
+        setTimeout(() => {
+          window.location.href = "dashboard.html"; // <-- Yahan apna redirect page set karein
+        }, 1000);
+      } else {
+        Toastify({
+          text: "Invalid username or password!",
+          duration: 3000,
+          style: { background: "linear-gradient(to right, #ff5f6d, #ff1744)" }
+        }).showToast();
+      }
+    });
   </script>
 </body>
 </html>
-
-
 
