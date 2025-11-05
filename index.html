@@ -166,14 +166,30 @@
     </form>
   </div>
 
-  <script>
-    // Redirect after login
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      alert("✅ Login Successful! Redirecting to home...");
-      window.location.href = 'home.html';
-    });
+    <script>
+  const correctUsername = "yourUsername";   // yahan apna desired username dalein
+  const correctPassword = "yourPassword";   // yahan apna desired password dalein
+
+  document.getElementById('loginForm').addEventListener('submit', function(e){
+    e.preventDefault(); // form submit hone se rokna
+
+    const enteredUser = this.querySelector('input[type="text"]').value.trim();
+    const enteredPwd  = this.querySelector('input[type="password"]').value;
+
+    if (enteredUser === correctUsername && enteredPwd === correctPassword) {
+      // Login successful
+      alert("Login successful!");
+      // Redirect karna chahte hain toh:
+      window.location.href = "dashboard.html";  // apne dashboard page ka URL dalein
+    } else {
+      // Login failed
+      alert("Invalid username or password!");
+    }
+  });
+
+
   </script>
 </body>
 </html>
+
 
