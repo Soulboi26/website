@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register | PowerHub Gym</title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap');
 
@@ -142,17 +145,18 @@
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
+
 </head>
+
 <body>
 
   <div class="register-box">
     <h1>Join PowerHub Gym</h1>
-    <form onsubmit="return goLogin();">
+    <form id="registerForm">
       <div class="input-group">
         <label>Full Name</label>
         <input type="text" placeholder="Enter your name" required>
       </div>
-
 
       <div class="input-group">
         <label>Phone Number</label>
@@ -164,11 +168,10 @@
         <select required>
           <option value="">Select Gender</option>
           <option>Male</option>
-          <option>Female</option>
+          <option>Female (eg.SUBHAN)</option>
           <option>Other</option>
         </select>
       </div>
-
 
       <div class="input-group">
         <label>Password</label>
@@ -181,16 +184,20 @@
     </form>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script>
-    function goLogin() {
-      alert("✅ Registration Successful! Redirecting to login...");
-      window.location.href = "index.html";
-      return false;
-    }
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      Toastify({
+        text: "✅ Registration Successful! Redirecting to login...",
+        duration: 3000,
+        style: { background: "linear-gradient(to right, var(--accent-red), var(--accent-red-2))" }
+      }).showToast();
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1000);
+    });
   </script>
 
 </body>
 </html>
-
-
-
