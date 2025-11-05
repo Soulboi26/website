@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — PowerHub Gym</title>
+  <style>
+    :root{
+      --bg-top: #0e0013;
+      --bg-mid: #190014;
+      --bg-bot: #000010;
+      --accent-red: #ff1744;
+      --accent-red-2: #ff5f6c;
+      --card-bg: rgba(255,255,255,0.04);
+      --glass: rgba(255,255,255,0.04);
+      --text-soft: rgba(255,255,255,0.85);
+      --muted: rgba(255,255,255,0.65);
+      --glass-border: rgba(255,255,255,0.06);
+      --radius: 14px;
+      --container-width: 1100px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg,var(--bg-top) 0%, var(--bg-mid) 45%, var(--bg-bot) 100%);
+      color:var(--text-soft);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:0 20px 48px;
+    }
+
+    .wrap{width:100%;max-width:var(--container-width);flex:1}
+
+    /* === HEADER / NAVBAR === */
+    nav{
+      width:100%;
+      background:linear-gradient(90deg,#190014,#0e0013);
+      border-radius:12px;
+      padding:14px 24px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      box-shadow:0 0 20px rgba(0,0,0,0.4);
+      margin-top:20px;
+      margin-bottom:40px;
+    }
+    .logo-text{
+      font-weight:700;
+      font-size:20px;
+      background:linear-gradient(90deg,var(--accent-red),var(--accent-red-2));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      letter-spacing:1px;
+    }
+    .nav-links{
+      display:flex;
+      gap:30px;
+    }
+    .nav-links a{
+      color:var(--muted);
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active{
+      color:white;
+    }
+
+    /* === HERO === */
+    header.hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:center;
+      margin-bottom:28px;
+    }
+
+    h1{font-size:34px;margin:8px 0 6px}
+    p.lead{color:var(--muted);margin:0 0 18px;font-size:16px;line-height:1.5}
+
+    .stat-row{display:flex;gap:12px;margin-top:12px}
+    .stat{background:var(--card-bg);padding:12px 16px;border-radius:12px;border:1px solid var(--glass-border);min-width:120px;text-align:center}
+    .stat strong{display:block;font-size:20px}
+    .stat span{display:block;color:var(--muted);font-size:13px}
+
+    .cta{margin-top:18px;display:flex;gap:12px}
+    .btn{padding:12px 18px;border-radius:12px;border:none;cursor:pointer;font-weight:600}
+    .btn-primary{background:linear-gradient(90deg,var(--accent-red),var(--accent-red-2));color:white;box-shadow:0 8px 30px rgba(255,23,68,0.12)}
+
+    .hero-image{width:100%;height:360px;border-radius:18px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(0,0,0,0.12));display:flex;align-items:center;justify-content:center;border:1px solid var(--glass-border)}
+    .hero-image img{width:100%;height:100%;object-fit:cover}
+
+    main.sections{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .card{background:var(--glass);padding:20px;border-radius:var(--radius);border:1px solid var(--glass-border);}
+    .card h3{margin-top:0}
+    .muted{color:var(--muted)}
+
+    .values{display:flex;flex-direction:column;gap:12px}
+    .value{display:flex;gap:12px;align-items:flex-start}
+    .value .dot{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,var(--accent-red),var(--accent-red-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+
+    .trainers{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .trainer{display:flex;gap:12px;align-items:center}
+    .avatar{width:72px;height:72px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(0,0,0,0.12));display:flex;align-items:center;justify-content:center;font-weight:700;border:1px solid var(--glass-border)}
+
+    /* === FOOTER === */
+    footer{
+      margin-top:50px;
+      padding:30px 0;
+      background:rgba(255,255,255,0.03);
+      border:1px solid var(--glass-border);
+      border-radius:16px;
+      backdrop-filter:blur(8px);
+      box-shadow:0 0 25px rgba(0,0,0,0.3);
+      text-align:center;
+    }
+
+    .footer-top{
+      display:flex;
+      justify-content:center;
+      gap:40px;
+      flex-wrap:wrap;
+      margin-bottom:20px;
+    }
+    .footer-top a{
+      color:var(--muted);
+      text-decoration:none;
+      font-size:14px;
+      transition:0.3s;
+    }
+    .footer-top a:hover{
+      color:var(--accent-red-2);
+    }
+
+    .socials{
+      margin-bottom:10px;
+      display:flex;
+      justify-content:center;
+      gap:14px;
+    }
+    .socials a{
+      width:34px;
+      height:34px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      background:rgba(255,255,255,0.05);
+      border:1px solid var(--glass-border);
+      color:var(--text-soft);
+      font-weight:bold;
+      text-decoration:none;
+      transition:0.3s;
+    }
+    .socials a:hover{
+      background:linear-gradient(135deg,var(--accent-red),var(--accent-red-2));
+      color:white;
+    }
+
+    .footer-bottom{
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    @media (max-width:920px){
+      header.hero{grid-template-columns:1fr;}
+      main.sections{grid-template-columns:1fr}
+      .trainers{grid-template-columns:1fr}
+      .hero-image{height:260px}
+      .nav-links{gap:16px;font-size:14px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- HEADER / NAVBAR -->
+    <nav>
+      <div class="logo-text">POWERHUB</div>
+      <div class="nav-links">
+        <a href="home.html">Home</a>
+        <a href="CONTACTUS.html" class="active">About Us</a>
+        <a href="trainers.html">Trainers</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+      <div>
+        <h1>PowerHub Gym — Where Strength Meets Community</h1>
+        <p class="lead">PowerHub Gym is a modern fitness studio focused on sustainable progress, expert coaching and an inclusive community. We blend science-backed training with motivating group energy so every member — newbie or pro — feels supported on their fitness journey.</p>
+
+        <div class="stat-row">
+          <div class="stat"><strong>2k+</strong><span>Members trained</span></div>
+          <div class="stat"><strong>30</strong><span>Expert coaches</span></div>
+          <div class="stat"><strong>7</strong><span>Years running</span></div>
+        </div>
+
+        <div class="cta">
+          <button class="btn btn-primary">Join Now</button>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1400&auto=format&fit=crop" alt="PowerHub Gym"/>
+      </div>
+    </header>
+
+    <!-- MAIN SECTIONS -->
+    <main class="sections">
+      <section class="card">
+        <h3>Our Mission</h3>
+        <p class="muted">To empower people to move better, lift stronger, and live healthier — through coaching, community and clean, modern facilities.</p>
+
+        <h3 style="margin-top:18px">What We Offer</h3>
+        <ul class="muted">
+          <li>Personal training & small-group coaching</li>
+          <li>Strength & conditioning programs</li>
+          <li>Nutrition guidance and habit coaching</li>
+          <li>Open gym with premium equipment</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h3>Our Core Values</h3>
+        <div class="values">
+          <div class="value"><div class="dot">1</div><div><strong>Community first</strong><div class="muted">We create a welcoming space where members help each other progress.</div></div></div>
+          <div class="value"><div class="dot">2</div><div><strong>Evidence-based coaching</strong><div class="muted">Programs designed using proven training principles, updated regularly.</div></div></div>
+          <div class="value"><div class="dot">3</div><div><strong>Safety & consistency</strong><div class="muted">We prioritize safe technique and steady progress over shortcuts.</div></div></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3> Our Coaches</h3>
+        <div class="trainers">
+          <div class="trainer"><div class="avatar">KM</div><div><strong>KOKILA MODI</strong><div class="muted">Head Coach — Strength & Conditioning</div></div></div>
+          <div class="trainer"><div class="avatar">SK</div><div><strong>SUBHAM KOCHLE</strong><div class="muted">Performance & Nutrition Coach</div></div></div>
+        </div>
+
+        <p style="margin-top:12px" class="muted">Our coaches are certified, experienced, and here to tailor plans to your goals — whether it's fat loss, muscle gain, or athletic performance.</p>
+      </section>
+
+      <section class="card">
+        <h3>Ready to start?</h3>
+        <p class="muted">Book a free tour or a trial session — no commitment. We’ll show you around, discuss goals, and set up a plan that fits your life.</p>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+     
+      <div class="socials">
+        <a href="#">F</a><a href="#">Y</a><a href="#">I</a><a href="#">T</a>
+      </div>
+      <div class="footer-bottom">
+        © <span id="year"></span> PowerHub Gym — Built with 💪 Passion.
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
