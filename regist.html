@@ -78,17 +78,13 @@
       color: #bbb;
     }
 
-    /* Fix dropdown text visibility */
+    /* Dropdown options visible fix */
     select option {
       background: #111;
       color: #fff;
     }
 
-    select::-ms-expand {
-      display: none;
-    }
-
-    /* Add custom arrow for select */
+    /* Custom dropdown arrow */
     select {
       background-image: linear-gradient(45deg, transparent 50%, #ffb700 50%),
         linear-gradient(135deg, #ffb700 50%, transparent 50%);
@@ -153,11 +149,9 @@
 <body>
   <div class="register-card">
     <h1><span>💪</span> PowerHub Register</h1>
-    <form>
+    <form onsubmit="return handleRegister(event)">
       <label>Full Name</label>
       <input type="text" placeholder="Enter your name" required>
-
-     
 
       <label>Phone Number</label>
       <input type="tel" placeholder="Enter your phone" required>
@@ -167,7 +161,7 @@
         <option value="" disabled selected>Select Gender</option>
         <option>Male</option>
         <option>Female</option>
-        <option>Other (eg.SUBHAN)</option>
+        <option>Other (eg. SUBHAN)</option>
       </select>
 
       <label>Date of Birth</label>
@@ -180,12 +174,23 @@
       <label>Password</label>
       <input type="password" placeholder="Create password" required>
 
-	  <button onclick="showAlert()" type="submit">Register Now</button>
+      <button type="submit">Register Now</button>
     </form>
 
     <div class="login-link">
       Already have an account? <a href="index.html">Login</a>
     </div>
   </div>
+
+  <script>
+    function handleRegister(event) {
+      event.preventDefault(); // prevent page reload
+      alert("🎉 Registration successful! Welcome to PowerHub 💪");
+      // Redirect to dashboard or home page
+      window.location.href = "index.html"; 
+      return false;
+    }
+  </script>
 </body>
 </html>
+
