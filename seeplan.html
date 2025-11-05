@@ -178,5 +178,20 @@
 </html>
 
 
+<script>
+  const bookingForm = document.getElementById('bookingForm');
+    const successMsg = bookingForm.querySelector('.booking-success');
+    bookingForm.addEventListener('submit', () => {
+      successMsg.classList.remove('hidden');
+      successMsg.classList.add('show');
+
+      setTimeout(() => {
+        successMsg.classList.remove('show');
+        successMsg.classList.add('hidden');
+      }, 3000);
+
+      bookingForm.reset();
+    });
+</script>
 
 
