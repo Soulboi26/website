@@ -23,7 +23,7 @@
     *{box-sizing:border-box;margin:0;padding:0}
     html,body{height:100%}
     body{
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      font-family: Poppins, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
       background: linear-gradient(180deg,var(--bg-top) 0%, var(--bg-mid) 45%, var(--bg-bot) 100%);
       color:var(--text-soft);
       -webkit-font-smoothing:antialiased;
@@ -91,7 +91,12 @@
 
     .cta{margin-top:18px;display:flex;gap:12px}
     .btn{padding:12px 18px;border-radius:12px;border:none;cursor:pointer;font-weight:600}
-    .btn-primary{background:linear-gradient(90deg,var(--accent-red),var(--accent-red-2));color:white;box-shadow:0 8px 30px rgba(255,23,68,0.12)}
+    .btn-primary{background:linear-gradient(90deg,var(--accent-red),var(--accent-red-2));color:white;box-shadow:0 8px 30px rgba(255,23,68,0.12);text-decoration:none;}
+
+    .btn-primary:hover,
+    .btn-primary:focus{
+      text-decoration:none;
+    }
 
     .hero-image{width:100%;height:360px;border-radius:18px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(0,0,0,0.12));display:flex;align-items:center;justify-content:center;border:1px solid var(--glass-border)}
     .hero-image img{width:100%;height:100%;object-fit:cover}
@@ -194,7 +199,7 @@
     <header class="hero">
       <div>
         <h1>PowerHub Gym — Where Strength Meets Community</h1>
-        <p class="lead">PowerHub Gym is a modern fitness studio focused on sustainable progress, expert coaching and an inclusive community. We blend science-backed training with motivating group energy so every member — newbie or pro — feels supported on their fitness journey.</p>
+        <p class="lead">PowerHub Gym is a modern fitness studio focused on sustainable progress, expert coaching and an inclusive community. We blend science‑backed training with motivating group energy so every member — newbie or pro — feels supported on their fitness journey.</p>
 
         <div class="stat-row">
           <div class="stat"><strong>2k+</strong><span>Members trained</span></div>
@@ -203,7 +208,7 @@
         </div>
 
         <div class="cta">
-          <button class="btn btn-primary">Join Now</button>
+          <a href="seeplan.html" class="btn btn-primary">Join Now</a>
         </div>
       </div>
 
@@ -220,7 +225,7 @@
 
         <h3 style="margin-top:18px">What We Offer</h3>
         <ul class="muted">
-          <li>Personal training & small-group coaching</li>
+          <li>Personal training & small‑group coaching</li>
           <li>Strength & conditioning programs</li>
           <li>Nutrition guidance and habit coaching</li>
           <li>Open gym with premium equipment</li>
@@ -231,7 +236,7 @@
         <h3>Our Core Values</h3>
         <div class="values">
           <div class="value"><div class="dot">1</div><div><strong>Community first</strong><div class="muted">We create a welcoming space where members help each other progress.</div></div></div>
-          <div class="value"><div class="dot">2</div><div><strong>Evidence-based coaching</strong><div class="muted">Programs designed using proven training principles, updated regularly.</div></div></div>
+          <div class="value"><div class="dot">2</div><div><strong>Evidence‑based coaching</strong><div class="muted">Programs designed using proven training principles, updated regularly.</div></div></div>
           <div class="value"><div class="dot">3</div><div><strong>Safety & consistency</strong><div class="muted">We prioritize safe technique and steady progress over shortcuts.</div></div></div>
         </div>
       </section>
@@ -243,7 +248,7 @@
           <div class="trainer"><div class="avatar">SK</div><div><strong>SUBHAM KOCHLE</strong><div class="muted">Performance & Nutrition Coach</div></div></div>
         </div>
 
-        <p style="margin-top:12px" class="muted">Our coaches are certified, experienced, and here to tailor plans to your goals — whether it's fat loss, muscle gain, or athletic performance.</p>
+        <p style="margin-top:12px" class="muted">Our coaches are certified, experienced, and here to tailor plans to your goals — whether it’s fat loss, muscle gain, or athletic performance.</p>
       </section>
 
       <section class="card">
@@ -254,7 +259,6 @@
 
     <!-- FOOTER -->
     <footer>
-     
       <div class="socials">
         <a href="#">F</a><a href="#">Y</a><a href="#">I</a><a href="#">T</a>
       </div>
@@ -268,5 +272,4 @@
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
-
 </html>
