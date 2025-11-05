@@ -39,6 +39,7 @@
       padding: 30px;
       width: 250px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
     }
 
     .plan:hover {
@@ -82,6 +83,24 @@
     .plan button:hover {
       background-color: #ff7a9b;
       box-shadow: 0 0 15px rgba(255, 75, 110, 0.6);
+    }
+
+    .booking-success {
+      display: none;
+      color: #00ff90;
+      font-weight: 600;
+      margin-top: 15px;
+      text-shadow: 0 0 8px #00ff90;
+    }
+
+    .booking-success.show {
+      display: block;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .back-btn {
@@ -138,8 +157,8 @@
       <div class="price">₹999</div>
       <p>Access to all gym equipment and locker facilities.  
       Ideal for short-term goals or first-time members.</p>
-       <button class="btn primary wide" type="submit">Get Booked</button>
-      <p class="booking-success hidden">✅Congrulation your plan selected</p>
+      <button class="book-btn">Get Booked</button>
+      <p class="booking-success">✅ Congratulations! Your plan is selected.</p>
     </div>
 
     <div class="plan">
@@ -147,8 +166,8 @@
       <div class="price">₹2499</div>
       <p>Full access plus 1 personal trainer session every week.  
       Perfect for consistency and progress tracking.</p>
-       <button class="btn primary wide" type="submit">Get Booked</button>
-      <p class="booking-success hidden">✅Congrulation your plan selected</p>
+      <button class="book-btn">Get Booked</button>
+      <p class="booking-success">✅ Congratulations! Your plan is selected.</p>
     </div>
 
     <div class="plan">
@@ -156,8 +175,8 @@
       <div class="price">₹4499</div>
       <p>Includes trainer support, diet guidance, and flexibility sessions.  
       Great for transformation programs.</p>
-       <button class="btn primary wide" type="submit">Get Booked</button>
-      <p class="booking-success hidden">✅Congrulation your plan selected</p>
+      <button class="book-btn">Get Booked</button>
+      <p class="booking-success">✅ Congratulations! Your plan is selected.</p>
     </div>
 
     <div class="plan">
@@ -165,8 +184,8 @@
       <div class="price">₹7999</div>
       <p>Unlimited access, personal coaching, and nutrition planning.  
       Best value for serious fitness lovers.</p>
-       <button class="btn primary wide" type="submit">Get Booked</button>
-      <p class="booking-success hidden">✅Congrulation your plan selected</p>
+      <button class="book-btn">Get Booked</button>
+      <p class="booking-success">✅ Congratulations! Your plan is selected.</p>
     </div>
   </div>
 
@@ -174,24 +193,21 @@
 
   <footer>© 2025 PowerHub Fitness. All rights reserved.</footer>
 
+  <script>
+    // Select all buttons
+    const buttons = document.querySelectorAll(".book-btn");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const message = btn.nextElementSibling; 
+        message.classList.add("show"); 
+        setTimeout(() => {
+          message.classList.remove("show");
+        }, 3000);
+      });
+    });
+  </script>
+
 </body>
 </html>
-
-
-<script>
-  const bookingForm = document.getElementById('bookingForm');
-    const successMsg = bookingForm.querySelector('.booking-success');
-    bookingForm.addEventListener('submit', () => {
-      successMsg.classList.remove('hidden');
-      successMsg.classList.add('show');
-
-      setTimeout(() => {
-        successMsg.classList.remove('show');
-        successMsg.classList.add('hidden');
-      }, 3000);
-
-      bookingForm.reset();
-    });
-</script>
-
 
