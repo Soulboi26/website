@@ -14,7 +14,6 @@
       --accent-cyan: #00e5ff;
       --muted: #bfc5cc;
       --glass: rgba(255,255,255,0.03);
-      --glass-2: rgba(255,255,255,0.02);
       --container: 1180px;
       --radius: 12px;
       --shadow-strong: 0 18px 60px rgba(0,0,0,0.6);
@@ -27,9 +26,9 @@
       color: #eef3f8;
       background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 40%, var(--bg-bot) 100%);
       background-attachment: fixed;
-      -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
+
     body::before {
       content:"";
       position: fixed;
@@ -84,11 +83,10 @@
       text-align: center;
       font-size: 50px;
       font-weight: 900;
-      letter-spacing: 1px;
       margin-top: 60px;
       text-transform: uppercase;
       color: #fff;
-      text-shadow: 0 0 20px rgba(255,23,68,0.2), 0 0 40px rgba(255,23,68,0.1);
+      text-shadow: 0 0 20px rgba(255,23,68,0.2);
     }
     h1 span {
       color: var(--accent-red);
@@ -96,7 +94,6 @@
 
     .intro {
       text-align: center;
-      font-weight: 500;
       color: var(--muted);
       font-size: 18px;
       max-width: 800px;
@@ -122,7 +119,7 @@
     }
     .trainer-section:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 28px rgba(255,23,68,0.4), 0 0 60px rgba(255,23,68,0.15);
+      box-shadow: 0 0 28px rgba(255,23,68,0.4);
       border-color: rgba(255,23,68,0.25);
     }
 
@@ -152,7 +149,25 @@
       color: var(--muted);
       line-height: 1.6;
       margin-bottom: 15px;
-      font-weight: 400;
+    }
+
+    /* ===== Book Button ===== */
+    .book-btn {
+      background: var(--accent-red);
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(255,23,68,0.3);
+    }
+    .book-btn:hover {
+      background: var(--accent-red-2);
+      box-shadow: 0 0 18px rgba(255,23,68,0.5);
+      transform: scale(1.05);
     }
 
     footer {
@@ -162,6 +177,27 @@
       font-size: 14px;
       border-top: 1px solid rgba(255,255,255,0.05);
       padding-top: 20px;
+    }
+
+    /* ===== Toast Notification ===== */
+    .toast {
+      position: fixed;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent-red);
+      color: #fff;
+      padding: 14px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      box-shadow: 0 0 20px rgba(255,23,68,0.4);
+      opacity: 0;
+      transition: all 0.4s ease;
+      z-index: 9999;
+    }
+    .toast.show {
+      bottom: 40px;
+      opacity: 1;
     }
 
     /* ===== Responsive ===== */
@@ -188,8 +224,8 @@
       <a href="home.html" class="logo">POWERHUB</a>
       <div class="links">
         <a href="home.html">Home</a>
-        <a href="CONTACTUS.html">About Us</a>
-        <a href="PLAN.html" class="active">Trainers</a>
+        <a href="about.html">About Us</a>
+        <a href="trainers.html" class="active">Trainers</a>
         <a href="contactus1.html">Contact Us</a>
       </div>
     </div>
@@ -203,7 +239,8 @@
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnzBArH03zHFVquG0_ihhS05b-vXXXkdBD4A&s" alt="Trainer 1">
     <div class="trainer-info">
       <h2>Shubham Kochle</h2>
-      <p>Subham kochale is one of our experienced and famous trainers. He believes that "Roz subha sabse pehle ek glass dhoodh" then oggy shoes then intense workout with "15 rupees wali eentt (bricks)".He loves to do exercise with eent and especially "Ghar ka gate".</p>
+      <p>Subham kochale is one of our experienced and famous trainers. He believes that "Roz subha sabse pehle ek glass dhoodh" then oggy shoes then intense workout with "15 rupees wali eentt (bricks)". He loves to do exercise with eent and especially "Ghar ka gate".</p>
+      <button class="book-btn" onclick="bookSlot()">Book Slot</button>
     </div>
   </div>
 
@@ -212,19 +249,18 @@
     <img src="https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2020/08/30/Pictures/_838b3fb0-ea84-11ea-b0d0-732c2aa3f4c8.jpg" alt="Trainer 2">
     <div class="trainer-info">
       <h2>Kokila Modi</h2>
-      <p>Kokila modi is known for his attitude and arrogance.  
-      Kokila modi is so serious and passionate about her fitness,"Gopi bahu" and "Gopi bahu ki love life".  
-      Kokila modi is so strict towards to diets she don't want anyone to be fat specially "Ahem babu".</p>
+      <p>Kokila modi is known for her attitude and arrogance. Kokila modi is so serious and passionate about her fitness, "Gopi bahu" and "Gopi bahu ki love life". She is strict towards diets — she doesn't want anyone to be fat, especially "Ahem babu".</p>
+      <button class="book-btn" onclick="bookSlot()">Book Slot</button>
     </div>
   </div>
 
   <!-- Trainer 3 -->
   <div class="trainer-section">
-    <img src="GYMTR3.jpeg" alt="Trainer 3">
+    <img src="GYMTR3" alt="Trainer 3">
     <div class="trainer-info">
       <h2>Nadia ka shohar</h2>
-      <p>Recently he got shocked when he know that there is no nadia there is a guy who's trying to be nadia.
-      He got heartbreak so he is ready to transform himself and our gym members.</p>
+      <p>Recently he got shocked when he knew that there is no Nadia — there is a guy pretending to be her. Heartbroken, he’s now ready to transform himself and our gym members with new energy.</p>
+      <button class="book-btn" onclick="bookSlot()">Book Slot</button>
     </div>
   </div>
 
@@ -233,11 +269,25 @@
     <img src="gymtrainer.jpeg" alt="Trainer 4">
     <div class="trainer-info">
       <h2>Subhan Khan</h2>
-      <p>Bhai call utha liya kar aur uth Jaya kar warna aur belt treatment ke baad toh uth Jaya hi kar warna next time homepage ki full screen par aayega</p>
+      <p>Bhai call utha liya kar aur uth Jaya kar warna aur belt treatment ke baad toh uth Jaya hi kar warna next time homepage ki full screen par aayega.</p>
+      <button class="book-btn" onclick="bookSlot()">Book Slot</button>
     </div>
   </div>
 
   <footer>© 2025 PowerHub Gym. All rights reserved.</footer>
+
+ 
+  <div id="toast" class="toast">🎉 Congratulations! Your slot is booked.</div>
+
+  <script>
+    function bookSlot() {
+      const toast = document.getElementById("toast");
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
+  </script>
 
 </body>
 </html>
