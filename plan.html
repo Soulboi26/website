@@ -39,7 +39,6 @@
       z-index:-1;
     }
 
-    /* ===== Navbar ===== */
     nav {
       position: sticky; top:0; z-index: 120;
       backdrop-filter: blur(10px);
@@ -78,7 +77,6 @@
       transform: translateY(-2px);
     }
 
-    /* ===== Page Header ===== */
     h1 {
       text-align: center;
       font-size: 50px;
@@ -101,7 +99,6 @@
       line-height: 1.6;
     }
 
-    /* ===== Trainer Cards ===== */
     .trainer-section {
       display: flex;
       align-items: center;
@@ -114,7 +111,7 @@
       width: 85%;
       border: 1px solid rgba(255,255,255,0.04);
       box-shadow: var(--shadow-strong);
-      backdrop-filter: blur(14px) saturate(160%);
+      backdrop-filter: blur(14px saturate(160%));
       transition: all 0.3s ease;
     }
     .trainer-section:hover {
@@ -151,7 +148,6 @@
       margin-bottom: 15px;
     }
 
-    /* ===== Book Button ===== */
     .book-btn {
       background: var(--accent-red);
       border: none;
@@ -170,61 +166,100 @@
       transform: scale(1.05);
     }
 
+    /* ===== Footer ===== */
     footer {
-      text-align: center;
-      margin: 60px 0 20px;
+      background: linear-gradient(180deg, var(--bg-mid), var(--bg-bot));
       color: var(--muted);
-      font-size: 14px;
+      padding: 60px 20px 30px;
       border-top: 1px solid rgba(255,255,255,0.05);
-      padding-top: 20px;
+      box-shadow: 0 -8px 20px rgba(0,0,0,0.4);
     }
 
-    /* ===== Toast Notification ===== */
-    .toast {
-      position: fixed;
-      bottom: -60px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--accent-red);
+    .footer-container {
+      max-width: var(--container);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+      text-align: left;
+    }
+
+    .footer-col {
+      flex: 1 1 300px;
+      min-width: 250px;
+    }
+
+    .footer-col h3 {
+      color: var(--accent-red);
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+
+    .footer-col p, .footer-col a {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+      text-decoration: none;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col ul li a:hover {
       color: #fff;
-      padding: 14px 30px;
-      border-radius: 30px;
-      font-weight: 600;
-      box-shadow: 0 0 20px rgba(255,23,68,0.4);
-      opacity: 0;
-      transition: all 0.4s ease;
-      z-index: 9999;
-    }
-    .toast.show {
-      bottom: 40px;
-      opacity: 1;
     }
 
-    /* ===== Responsive ===== */
-    @media (max-width: 760px) {
-      .trainer-section {
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .social-links img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0.8);
+      transition: all 0.3s ease;
+    }
+
+    .social-links img:hover {
+      transform: scale(1.15);
+      filter: drop-shadow(0 0 8px var(--accent-red-2)) brightness(1);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 780px) {
+      .footer-container {
         flex-direction: column;
         text-align: center;
       }
-      .trainer-section img {
-        margin-right: 0;
-        margin-bottom: 20px;
-      }
-      .trainer-info {
-        max-width: 90%;
+      .social-links {
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- 🔹 Navigation Bar -->
   <nav>
     <div class="nav-inner">
       <a href="home.html" class="logo">POWERHUB</a>
       <div class="links">
         <a href="home.html">Home</a>
-        <a href="CONTACTUS.html">About Us</a>
+        <a href="about.html">About Us</a>
         <a href="trainers.html" class="active">Trainers</a>
         <a href="contactus1.html">Contact Us</a>
       </div>
@@ -234,7 +269,7 @@
   <h1><span>Meet</span> Our Trainers</h1>
   <p class="intro">Elite professionals who blend discipline, power, and precision to help you unleash your inner beast.</p>
 
-  <!-- Trainer 1 -->
+  <!-- Trainers -->
   <div class="trainer-section">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnzBArH03zHFVquG0_ihhS05b-vXXXkdBD4A&s" alt="Trainer 1">
     <div class="trainer-info">
@@ -244,7 +279,6 @@
     </div>
   </div>
 
-  <!-- 
   <div class="trainer-section">
     <img src="https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2020/08/30/Pictures/_838b3fb0-ea84-11ea-b0d0-732c2aa3f4c8.jpg" alt="Trainer 2">
     <div class="trainer-info">
@@ -253,10 +287,9 @@
       <button class="book-btn" onclick="bookSlot()">Book Slot</button>
     </div>
   </div>
- Trainer 1 -->
-  <!-- Trainer 3 -->
+
   <div class="trainer-section">
-    <img src="GYMTR3.jpeg" alt="Trainer 3">
+    <img src="GYMTR3" alt="Trainer 3">
     <div class="trainer-info">
       <h2>Nadia ka shohar</h2>
       <p>Recently he got shocked when he knew that there is no Nadia — there is a guy pretending to be her. Heartbroken, he’s now ready to transform himself and our gym members with new energy.</p>
@@ -264,21 +297,53 @@
     </div>
   </div>
 
-  <!--
   <div class="trainer-section">
     <img src="gymtrainer.jpeg" alt="Trainer 4">
     <div class="trainer-info">
       <h2>Subhan Khan</h2>
-      <p>Bhai call utha liya kar aur uth Jaya kar warna aur belt treatment ke baad toh uth Jaya hi kar warna next time homepage ki full screen par aayega.</p>
+      <p>Bhai call utha liya kar aur uth Jaya kar aur belt treatment ke baad toh uth Jaya hi kar warna next time homepage ki full screen par aayega.</p>
       <button class="book-btn" onclick="bookSlot()">Book Slot</button>
     </div>
   </div>
-   Trainer 4 -->
 
-  <footer>© 2025 PowerHub Gym. All rights reserved.</footer>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>PowerHub Gym</h3>
+        <p>Push harder than yesterday if you want a different tomorrow. Strength, Discipline, and Growth — all under one roof.</p>
+        <div class="social-links">
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
+          <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+        </div>
+      </div>
 
- 
-  <div id="toast" class="toast">🎉 Congratulations! Your slot is booked.</div>
+      <div class="footer-col">
+        <h3>Opening Hours</h3>
+        <p>Mon - Fri: 5:00 AM – 10:00 PM</p>
+        <p>Saturday: 6:00 AM – 8:00 PM</p>
+        <p>Sunday: Closed</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="trainers.html">Trainers</a></li>
+          <li><a href="contactus1.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 PowerHub Gym. All rights reserved.
+    </div>
+  </footer>
+
+  <div id="toast" class="toast">🎉 Congratulations! Your slot is booked for tomorrow.</div>
 
   <script>
     function bookSlot() {
